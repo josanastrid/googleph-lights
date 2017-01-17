@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Google Lights</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:900" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <div class="letter">LUZON</div>
+    <div class="rgbValues">debug on</div>
+
+    <div class="color-picker">
+      <div class="color blue"></div>
+      <div class="color red"></div>
+      <div class="color yellow"></div>
+      <div class="color green"></div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        databaseURL: "https://project--2648109471630016846.firebaseio.com"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+  </body>
+</html>

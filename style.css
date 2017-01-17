@@ -1,0 +1,68 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+body, html{
+  background-color: #aaa;
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+}
+
+.rgbValues{
+  text-align: center;
+  color: #fff;
+}
+
+/* Letter */
+
+.letter{
+  color: #fff;
+  font-size: 5em;
+  text-align: center;
+}
+
+/* Color Picker */
+
+.color-picker{
+    height: 45px;
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    margin: 0px auto;
+}
+
+.color{
+    border-radius: 50%;
+    border-size: 2px;
+    border-color: #fff;
+    border-style: solid;
+    width: 45px;
+    height: 45px;
+    float: left;
+    margin-left: 16px;
+}
+
+.color.active{
+  border: 1px solid white;
+}
+
+.green{
+  /*Hex: #3cba54*/
+  background-color: rgb(60, 186, 84);
+}
+
+.yellow{
+  /*Hex: #f4c20d*/
+  background-color: rgb(244, 194, 13);
+}
+
+.red{
+  /*Hex: #db3236*/
+  background-color: rgb(219, 50, 54);
+}
+
+.blue{
+  /*Hex: #4885ed*/
+  background-color: rgb(72, 133, 237);
+}
