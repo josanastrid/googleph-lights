@@ -38,7 +38,8 @@ firebase.database().ref().child("devices").child(DEVICE_ID).on('value', function
 $('.color').click(function(){
 
   // Show the spinner
-  $('.spinner').fadeIn();
+  var insideSpinner = $(this).find('.inside-spinner')
+  insideSpinner.fadeIn();
 
   /*
   * Gets the command from the date-command attribute of the clicked button
@@ -64,7 +65,7 @@ $('.color').click(function(){
     error: function(response){
 
       // Hide the spinner
-      $('.spinner').hide();
+      insideSpinner.hide();
 
       alert("Sorry, we lost connection with the device.")
 
@@ -91,7 +92,7 @@ $('.color').click(function(){
     }
 
     // Hide the spinner
-    $('.spinner').hide();
+    insideSpinner.hide();
 
   })
 

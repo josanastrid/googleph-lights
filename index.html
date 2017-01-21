@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    
+
     <div class="instructions">Google Lights</div>
     <div class="debug"></div>
 
@@ -27,10 +27,26 @@
       </div>
 
       <!-- Colors -->
-      <div class="color blue" data-command="blue"></div>
-      <div class="color red" data-command="red"></div>
-      <div class="color yellow" data-command="yellow"></div>
-      <div class="color green" data-command="green"></div>
+      <div class="color blue" data-command="blue">
+        <!-- Included onerror for compatibility issues -->
+        <img class="icon inside-spinner" src="images/ic_sync_white_24px.svg" alt=""
+        onerror="this.onerror=null; this.src='images/ic_sync_white_24dp_2x.png'">
+      </div>
+      <div class="color red" data-command="red">
+        <!-- Included onerror for compatibility issues -->
+        <img class="icon inside-spinner" src="images/ic_sync_white_24px.svg" alt=""
+        onerror="this.onerror=null; this.src='images/ic_sync_white_24dp_2x.png'">
+      </div>
+      <div class="color yellow" data-command="yellow">
+        <!-- Included onerror for compatibility issues -->
+        <img class="icon inside-spinner" src="images/ic_sync_white_24px.svg" alt=""
+        onerror="this.onerror=null; this.src='images/ic_sync_white_24dp_2x.png'">
+      </div>
+      <div class="color green" data-command="green">
+        <!-- Included onerror for compatibility issues -->
+        <img class="icon inside-spinner" src="images/ic_sync_white_24px.svg" alt=""
+        onerror="this.onerror=null; this.src='images/ic_sync_white_24dp_2x.png'">
+      </div>
 
       <!-- Button to turn off the lights -->
       <div class="color off" data-command="off">

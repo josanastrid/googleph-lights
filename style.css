@@ -38,6 +38,13 @@ body, html{
   animation:spin 1s linear infinite;
 }
 
+.inside-spinner{
+  display: none;
+  -webkit-animation:spin 1s linear infinite;
+  -moz-animation:spin 1s linear infinite;
+  animation:spin 1s linear infinite;
+}
+
 /* Spinner animations */
 @-moz-keyframes spin { 100% { -moz-transform: rotate(-360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(-360deg); } }
@@ -84,15 +91,18 @@ body, html{
     }
   }
 
-.color.active{
-  border: 1px solid white;
+.color .play{
+  left: calc((100% - 150px)/2);
+  height: 150px;
+  width: 150px;
+  position: absolute;
 }
 
-  .color .icon{
-    height: 80%;
-    width: 80%;
-    margin: 10%;
-  }
+.color .icon{
+  height: 80%;
+  width: 80%;
+  margin: 10%;
+}
 
 .green{
   /*Hex: #3cba54*/
@@ -112,4 +122,8 @@ body, html{
 .blue{
   /*Hex: #4885ed*/
   background-color: rgb(72, 133, 237);
+}
+
+.off{
+  background-color: #aaa;
 }
