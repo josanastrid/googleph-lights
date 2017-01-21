@@ -51,8 +51,13 @@ body, html{
     margin: auto;
     height: 45px;
     position: absolute;
-    bottom: 128px;
+    bottom: 112px;
 }
+  @media (min-width: 351px){
+    .color-picker{
+      bottom: 32px;
+    }
+  }
 
 .color{
     border-radius: 50%;
