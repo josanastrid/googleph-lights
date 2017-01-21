@@ -8,18 +8,20 @@
   </head>
   <body>
 
+    <div class="instructions">Choose a color below</div>
+
     <div class="rgbValues">debug on</div>
 
     <div class="color-picker">
+      <div class="color blue" data-command="blue"></div>
+      <div class="color red" data-command="red"></div>
+      <div class="color yellow" data-command="yellow"></div>
+      <div class="color green" data-command="green"></div>
       <div class="color off" data-command="off">
         <!-- Included onerror for compatibility issues -->
         <img class="icon-close" src="images/ic_close_white_24px.svg" alt=""
           onerror="this.onerror=null; this.src='images/ic_close_white_24dp_2x.png'">
       </div>
-      <div class="color blue" data-command="blue"></div>
-      <div class="color red" data-command="red"></div>
-      <div class="color yellow" data-command="yellow"></div>
-      <div class="color green" data-command="green"></div>
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>

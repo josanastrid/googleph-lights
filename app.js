@@ -1,35 +1,51 @@
-var debug = true;
+// Settings to show the logs in the UI
+var debug = false;
 
 // Constants
 var ACCESS_TOKEN = "1cbecd9ffc3dce4352254089a1ca360f8bf99012"
 var DEVICE_ID = "190029001247353236343033"
 
+// Get and listen to state changes from Firebase Database to sync with the UI's background
+firebase.database().ref().child("devices").child(DEVICE_ID).on('value', function syncBackground(snap){
+
+    // Current state of the device
+    var command = snap.val();
+
+    // Get the color of the command button
+    var color = $('.' + command).css('background-color')
+    $('body').css('background-color', color)
+
+})
+
 $(document).ready(function(){
 
   // Hide the rgbValues from the UI if you're not debugging
   if(!debug){
-    $('rgbvalues').hide()
+    $('.rgbValues').hide()
   }
+
+  var url = "https://api.particle.io/v1/devices/"
+        + DEVICE_ID + "/strip?access_token=" + ACCESS_TOKEN;
 
 })
 
 // Change the color upon click
 $('.color').click(function(){
 
+  /*
+  * Gets the command from the clicked button
+  * Command values could be red, green, blue, yellow, and off
+  */
   var command = this.attributes['data-command'].value;
 
-  /*
-
-  blue
-  red
-  green
-  yellow
-  off
-
-  */
+  // Build the URL with the DEVICE_ID and the ACCESS_TOKEN
   var url = "https://api.particle.io/v1/devices/"
         + DEVICE_ID + "/strip?access_token=" + ACCESS_TOKEN;
 
+  // Change the background color of the body
+  var button = $(this)
+
+  // Send an AJAX POST request to particle
   $.ajax({
     url: url,
     data: {
@@ -38,49 +54,23 @@ $('.color').click(function(){
     method: 'POST'
   })
 
+  // After the AJAX request
   .done(function(response){
-    console.log(response)
-  })
+    // Check if the device is connected
+    if(response.connected == true){
 
-  // Change the background color of the body
-  var color = $(this).css('background-color')
-  $('body').css('background-color', color)
-  
-  // local function to clean rgb values
-  // function cleanRGB(color){
-  //   color = color.replace(/rgb\(/g, '')
-  //   color = color.replace(/rgba\(/g, '')
-  //   color = color.replace(/\)/g, '')
-  //   var rgbValues = color.split(',')
-  //
-  //   var rgb = {};
-  //   rgb["R"] = rgbValues[0].trim()
-  //   rgb["G"] = rgbValues[1].trim()
-  //   rgb["B"] = rgbValues[2].trim()
-  //
-  //   return rgb
-  // }
+      var color = button.css('background-color')
+      $('body').css('background-color', color)
 
-  // Get the RGB values in this format
-  // todo: check with IOT format
-  /*
+      // Save device's current state to Firebase
+      firebase.database().ref("devices/"+DEVICE_ID).set(command).then(function(){
+        console.log('State saved to database')
+      })
 
-    {
-      R: 255,
-      G: 255,
-      B: 255
+    } else {
+      alert("We lost connection with the device.")
     }
-  */
-  // var rgbValues = cleanRGB(color)
 
-  // Set the RGB values based on letter
-  // todo: make /path or input for all the G-o-o-g-l-e letters
-  // firebase.database().ref("LUZON").set(rgbValues)
-  //   .then(function(){
-  //     var r = rgbValues.R
-  //     var g = rgbValues.G
-  //     var b = rgbValues.B
-  //     $('.rgbValues').html(r + ", " + g + ", " + b)
-  //   })
+  })
 
 })
