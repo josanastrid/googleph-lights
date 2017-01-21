@@ -15,13 +15,16 @@ firebase.database().ref().child("devices").child(DEVICE_ID).on('value', function
     var color = $('.' + command).css('background-color')
     $('body').css('background-color', color)
 
+    // Hide the spinner
+    $('.spinner').hide();
+
 })
 
 $(document).ready(function(){
 
   // Hide the rgbValues from the UI if you're not debugging
   if(!debug){
-    $('.rgbValues').hide()
+    $('.debug').hide()
   }
 
   var url = "https://api.particle.io/v1/devices/"
@@ -31,6 +34,9 @@ $(document).ready(function(){
 
 // Change the color upon click
 $('.color').click(function(){
+
+  // Show the spinner
+  $('.spinner').show();
 
   /*
   * Gets the command from the clicked button
@@ -51,7 +57,11 @@ $('.color').click(function(){
     data: {
       args: command
     },
-    method: 'POST'
+    method: 'POST',
+    // timeout: 3000,
+    error: function(response){
+      alert("Sorry, we lost connection with the device.")
+    }
   })
 
   // After the AJAX request
@@ -70,6 +80,9 @@ $('.color').click(function(){
     } else {
       alert("We lost connection with the device.")
     }
+
+    // Hide the spinner
+    $('.spinner').hide();
 
   })
 

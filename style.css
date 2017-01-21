@@ -15,10 +15,27 @@ body, html{
   color: white;
 }
 
-.rgbValues{
+.debug{
   text-align: center;
   color: #fff;
 }
+
+/* Spinner */
+.spinner{
+  position: absolute;
+  z-index: 99;
+  left: calc((100% - 100px)/2);
+  width: 100px;
+  height: 100px;
+  -webkit-animation:spin 1s linear infinite;
+  -moz-animation:spin 1s linear infinite;
+  animation:spin 1s linear infinite;
+}
+
+/* Spinner animations */
+@-moz-keyframes spin { 100% { -moz-transform: rotate(-360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(-360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg); } }
 
 /* Color Picker */
 
@@ -45,7 +62,7 @@ body, html{
   border: 1px solid white;
 }
 
-  .color .icon-close{
+  .color .icon{
     height: 80%;
     width: 80%;
     margin: 10%;
