@@ -14,14 +14,6 @@ body, html{
   color: #fff;
 }
 
-/* Letter */
-
-.letter{
-  color: #fff;
-  font-size: 5em;
-  text-align: center;
-}
-
 /* Color Picker */
 
 .color-picker{
@@ -46,6 +38,12 @@ body, html{
 .color.active{
   border: 1px solid white;
 }
+
+  .color .icon-close{
+    height: 80%;
+    width: 80%;
+    margin: 10%;
+  }
 
 .green{
   /*Hex: #3cba54*/
