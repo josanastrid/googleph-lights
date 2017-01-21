@@ -62,7 +62,12 @@ $('.color').click(function(){
     method: 'POST',
     timeout: 10000,
     error: function(response){
+
+      // Hide the spinner
+      $('.spinner').hide();
+
       alert("Sorry, we lost connection with the device.")
+      
     }
   })
 

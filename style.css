@@ -47,23 +47,21 @@ body, html{
 
 .color-picker{
     text-align: center;
-    width: calc(100% - 64px);
+    width: 100%;
     margin: auto;
     height: 45px;
     position: absolute;
-    bottom: 32px;
-    right: 32px;
+    bottom: 128px;
 }
 
 .color{
     border-radius: 50%;
-    border-size: 2px;
+    border-width: 2px;
     border-color: #fff;
     border-style: solid;
     width: 60px;
     height: 60px;
     display: inline-block;
-    margin-left: 16px;
 }
 
   @media (min-width: 315px){
