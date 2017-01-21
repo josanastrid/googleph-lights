@@ -15,6 +15,7 @@ body, html{
 }
 
 .instructions{
+  text-align: center;
   padding: 30px;
   font-size: 36px;
   color: white;
@@ -45,11 +46,13 @@ body, html{
 /* Color Picker */
 
 .color-picker{
+    text-align: center;
+    width: calc(100% - 64px);
+    margin: auto;
     height: 45px;
     position: absolute;
     bottom: 32px;
     right: 32px;
-    margin: 0px auto;
 }
 
 .color{
@@ -57,11 +60,26 @@ body, html{
     border-size: 2px;
     border-color: #fff;
     border-style: solid;
-    width: 45px;
-    height: 45px;
-    float: left;
+    width: 60px;
+    height: 60px;
+    display: inline-block;
     margin-left: 16px;
 }
+
+  @media (min-width: 315px){
+    .color{
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  @media (min-width: 449px) {
+    .color{
+      margin-left: 3px;
+      width: 45px;
+      height: 45px;
+    }
+  }
 
 .color.active{
   border: 1px solid white;

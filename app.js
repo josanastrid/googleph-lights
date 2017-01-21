@@ -24,8 +24,10 @@ firebase.database().ref().child("devices").child(DEVICE_ID).on('value', function
     var command = snap.val();
 
     // Get the color of the command button
-    var color = $('.' + command).css('background-color')
-    $('body').css('background-color', color)
+    if(command !== 'play'){
+      var color = $('.' + command).css('background-color')
+      $('body').css('background-color', color)
+    }
 
     // Hide the spinner
     $(".spinner").hide();
@@ -58,7 +60,7 @@ $('.color').click(function(){
       args: command
     },
     method: 'POST',
-    // timeout: 3000,
+    timeout: 10000,
     error: function(response){
       alert("Sorry, we lost connection with the device.")
     }
@@ -69,8 +71,10 @@ $('.color').click(function(){
     // Check if the device is connected
     if(response.connected == true){
 
-      var color = button.css('background-color')
-      $('body').css('background-color', color)
+      if(command !== 'play'){
+        var color = button.css('background-color')
+        $('body').css('background-color', color)
+      }
 
       // Save device's current state to Firebase
       firebase.database().ref("devices/"+DEVICE_ID).set(command).then(function(){
