@@ -7,6 +7,11 @@ body, html{
   margin: 0px;
   padding: 0px;
   height: 100%;
+
+  /* Transition for the webapp */
+  -webkit-transition: background-color 1s; /* Safari */
+  transition: background-color 1s;
+
 }
 
 .instructions{
@@ -42,8 +47,8 @@ body, html{
 .color-picker{
     height: 45px;
     position: absolute;
-    bottom: 16px;
-    right: 16px;
+    bottom: 32px;
+    right: 32px;
     margin: 0px auto;
 }
 

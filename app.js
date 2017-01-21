@@ -5,6 +5,18 @@ var debug = false;
 var ACCESS_TOKEN = "1cbecd9ffc3dce4352254089a1ca360f8bf99012"
 var DEVICE_ID = "190029001247353236343033"
 
+$(document).ready(function(){
+
+  // Show the spinner
+  $(".spinner").fadeIn();
+
+  // Hide the rgbValues from the UI if you're not debugging
+  if(!debug){
+    $('.debug').hide()
+  }
+
+})
+
 // Get and listen to state changes from Firebase Database to sync with the UI's background
 firebase.database().ref().child("devices").child(DEVICE_ID).on('value', function syncBackground(snap){
 
@@ -16,19 +28,7 @@ firebase.database().ref().child("devices").child(DEVICE_ID).on('value', function
     $('body').css('background-color', color)
 
     // Hide the spinner
-    $('.spinner').hide();
-
-})
-
-$(document).ready(function(){
-
-  // Hide the rgbValues from the UI if you're not debugging
-  if(!debug){
-    $('.debug').hide()
-  }
-
-  var url = "https://api.particle.io/v1/devices/"
-        + DEVICE_ID + "/strip?access_token=" + ACCESS_TOKEN;
+    $(".spinner").hide();
 
 })
 
@@ -36,7 +36,7 @@ $(document).ready(function(){
 $('.color').click(function(){
 
   // Show the spinner
-  $('.spinner').show();
+  $('.spinner').fadeIn();
 
   /*
   * Gets the command from the clicked button
@@ -78,7 +78,7 @@ $('.color').click(function(){
       })
 
     } else {
-      alert("We lost connection with the device.")
+      alert("Sorry, we lost connection with the device.")
     }
 
     // Hide the spinner
