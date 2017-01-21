@@ -37,15 +37,30 @@ firebase.database().ref().child("devices").child(DEVICE_ID).on('value', function
 // Change the color upon click
 $('.color').click(function(){
 
-  // Show the spinner
-  var insideSpinner = $(this).find('.inside-spinner')
-  insideSpinner.fadeIn();
-
   /*
   * Gets the command from the date-command attribute of the clicked button
   * Command values could be play, red, green, blue, yellow, and off
   */
   var command = this.attributes['data-command'].value;
+
+  // Show the spinner
+  if(command == "play" || command == "off"){
+    var spinner = $('.spinner')
+    spinner.fadeIn();
+  } else {
+    var insideSpinner = $(this).find('.inside-spinner')
+    insideSpinner.fadeIn();
+  }
+
+  // Inline function to hide spinner
+  function hideSpinner(){
+    // Hide the spinner
+    if(command == "play" || command == "off"){
+      spinner.hide();
+    } else {
+      insideSpinner.hide();
+    }
+  }
 
   // Build the URL with the DEVICE_ID and the ACCESS_TOKEN
   var url = "https://api.particle.io/v1/devices/"
@@ -65,7 +80,7 @@ $('.color').click(function(){
     error: function(response){
 
       // Hide the spinner
-      insideSpinner.hide();
+      hideSpinner();
 
       alert("Sorry, we lost connection with the device.")
 
@@ -91,8 +106,7 @@ $('.color').click(function(){
       alert("Sorry, we lost connection with the device.")
     }
 
-    // Hide the spinner
-    insideSpinner.hide();
+    hideSpinner()
 
   })
 

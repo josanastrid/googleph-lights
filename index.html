@@ -10,21 +10,21 @@
   </head>
   <body>
 
-    <div class="instructions">Google Lights</div>
     <div class="debug"></div>
 
     <!-- Spinner -->
     <img class="spinner" src="images/ic_sync_white_24px.svg" alt=""
     onerror="this.onerror=null; this.src='images/ic_sync_white_24dp_2x.png'">
 
+    <!-- Button to play the transition effect -->
+    <div class="color play" data-command="play">
+      <!-- Included onerror for compatibility issues -->
+      <img class="icon" src="images/ic_play_arrow_white_24px.svg" alt=""
+      onerror="this.onerror=null; this.src='images/ic_play_arrow_white_24dp_2x.png'">
+    </div>
+
     <!-- Container for the color picker -->
     <div class="color-picker">
-      <!-- Button to play the transition effect -->
-      <div class="color play" data-command="play">
-        <!-- Included onerror for compatibility issues -->
-        <img class="icon" src="images/ic_play_arrow_white_24px.svg" alt=""
-        onerror="this.onerror=null; this.src='images/ic_play_arrow_white_24dp_2x.png'">
-      </div>
 
       <!-- Colors -->
       <div class="color blue" data-command="blue">

@@ -91,10 +91,11 @@ body, html{
     }
   }
 
-.color .play{
-  left: calc((100% - 150px)/2);
-  height: 150px;
+.color.play{
   width: 150px;
+  height: 150px;
+  top: calc((100% - 150px)/2);
+  left: calc((100% - 150px)/2);
   position: absolute;
 }
 
