@@ -41,8 +41,8 @@ $('.color').click(function(){
   $('.spinner').fadeIn();
 
   /*
-  * Gets the command from the clicked button
-  * Command values could be red, green, blue, yellow, and off
+  * Gets the command from the date-command attribute of the clicked button
+  * Command values could be play, red, green, blue, yellow, and off
   */
   var command = this.attributes['data-command'].value;
 
@@ -67,7 +67,7 @@ $('.color').click(function(){
       $('.spinner').hide();
 
       alert("Sorry, we lost connection with the device.")
-      
+
     }
   })
 

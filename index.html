@@ -5,10 +5,11 @@
     <title>Google Lights</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:900" rel="stylesheet">
     <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Google PH's opening web app controller for the light pinning.">
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-
+    
     <div class="instructions">Google Lights</div>
     <div class="debug"></div>
 
@@ -16,6 +17,7 @@
     <img class="spinner" src="images/ic_sync_white_24px.svg" alt=""
     onerror="this.onerror=null; this.src='images/ic_sync_white_24dp_2x.png'">
 
+    <!-- Container for the color picker -->
     <div class="color-picker">
       <!-- Button to play the transition effect -->
       <div class="color play" data-command="play">
@@ -30,6 +32,7 @@
       <div class="color yellow" data-command="yellow"></div>
       <div class="color green" data-command="green"></div>
 
+      <!-- Button to turn off the lights -->
       <div class="color off" data-command="off">
         <!-- Included onerror for compatibility issues -->
         <img class="icon" src="images/ic_close_white_24px.svg" alt=""
@@ -38,6 +41,7 @@
 
     </div>
 
+    <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
     <script>
       // Initialize Firebase
@@ -47,7 +51,10 @@
       firebase.initializeApp(config);
     </script>
 
+    <!-- Additional Scripts -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <!-- App's Script -->
     <script type="text/javascript" src="app.js"></script>
 
   </body>
