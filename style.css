@@ -11,7 +11,20 @@ body, html{
   /* Transition for the webapp */
   -webkit-transition: background-color 1s; /* Safari */
   transition: background-color 1s;
+}
 
+.google {
+  background-image: url(images/google.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  position: absolute;
+  width: 600px;
+  left: 50%;
+  top: 50%;
+  margin-top: -120px;
+  margin-left: -300px;
+  height: 200px;
 }
 
 .instructions{
@@ -58,28 +71,39 @@ body, html{
     margin: auto;
     height: 45px;
     position: absolute;
-    bottom: 112px;
+    bottom: 70px;
 }
   @media (min-width: 351px){
     .color-picker{
-      bottom: 32px;
+      bottom: 50px;
     }
   }
 
+.color-picker .wrapper {
+  background: white;
+  position: relative;
+  display: inline-block;
+  margin: 0px auto;
+  padding: 12px 24px;
+  border-radius: 100px;
+  box-shadow: 0px 3px 4px rgba(0,0,0,.2);
+}
+
 .color{
     border-radius: 50%;
-    border-width: 2px;
-    border-color: #fff;
-    border-style: solid;
-    width: 60px;
-    height: 60px;
+    box-shadow: 0px 3px 4px rgba(0,0,0,.2);
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
     display: inline-block;
+    vertical-align: middle;
+    transition: all .2s ease-in-out;
 }
 
   @media (min-width: 315px){
     .color{
-      width: 50px;
-      height: 50px;
+      width: 48px;
+      height: 48px;
     }
   }
 
@@ -92,10 +116,13 @@ body, html{
   }
 
 .color.play{
-  width: 150px;
-  height: 150px;
-  top: calc((100% - 150px)/2);
-  left: calc((100% - 150px)/2);
+  width: 70px;
+  height: 70px;
+  box-shadow: 0px 0px 0px black;
+  top: 50%;
+  left: 50%;
+  margin-top: -30px;
+  margin-left: -22px;
   position: absolute;
 }
 
