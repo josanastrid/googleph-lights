@@ -3,7 +3,7 @@
 }
 
 body, html{
-  background-color: #aaa;
+  background-color: #222;
   margin: 0px;
   padding: 0px;
   width: 100%;
@@ -31,11 +31,11 @@ body, html{
   font-weight: 400;
   color: white;
   font-size: 13px;
-  padding: 36px 24px 24px 24px;
+  padding: 36px 24px 12px 24px;
 }
 .footer img {
   vertical-align: middle;
-  margin: 0px 12px;
+  margin: 12px 12px;
 }
 .instructions{
   text-align: center;
@@ -53,9 +53,10 @@ body, html{
 .spinner{
   position: absolute;
   z-index: 99;
-  left: calc((100% - 100px)/2);
-  width: 100px;
-  height: 100px;
+  left: calc((100% - 75px)/2);
+  top: 24px;
+  width: 75px;
+  height: 75px;
   -webkit-animation:spin 1s linear infinite;
   -moz-animation:spin 1s linear infinite;
   animation:spin 1s linear infinite;

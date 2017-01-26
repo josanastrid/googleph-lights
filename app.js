@@ -24,16 +24,27 @@ firebase.database().ref().child("devices").child(DEVICE_ID).on('value', function
     var command = snap.val();
 
     // Get the color of the command button
+    if(command == "off") {
+
+    }
     if(command !== 'play'){
       var color = $('.' + command).css('background-color')
+      $('body').css('background-color', color)
+    }
+    if(command == "play") {
+      //
+    } else if(command == "off") {
+      $('body').css('background-color', "#222");
+    } else {
+      var color = button.css('background-color')
       $('body').css('background-color', color)
     }
 
     // Hide the spinner
     $(".spinner").hide();
 
-})
-
+});
+var interval;
 // Change the color upon click
 $('.color').click(function(){
 
@@ -41,6 +52,8 @@ $('.color').click(function(){
   * Gets the command from the date-command attribute of the clicked button
   * Command values could be play, red, green, blue, yellow, and off
   */
+  if(!interval) 
+    clearInterval(interval);
   var command = this.attributes['data-command'].value;
 
   // Show the spinner
@@ -50,6 +63,40 @@ $('.color').click(function(){
   } else {
     var insideSpinner = $(this).find('.inside-spinner')
     insideSpinner.fadeIn();
+  }
+
+  if(command == "play") {
+    var i = 1;  
+    interval = setInterval(function() {
+      switch(i) {
+        case 1:
+          $("body").css({"background-color": "#4885ed"});
+          break;
+        case 2:
+          $("body").css({"background-color": "#db3236"});
+          break;
+        case 3:
+          $("body").css({"background-color": "#f4c20d"});
+          break;
+        case 4:
+          $("body").css({"background-color": "#4885ed"});
+          break;
+        case 5:
+          $("body").css({"background-color": "#3cba54"});
+          break;
+        case 6:
+          $("body").css({"background-color": "#db3236"});
+          break;
+        default:
+          clearInterval(interval);
+      }
+      i++;
+    }, 1000);
+  } else if(command == "off") {
+    $('body').css('background-color', "#222");
+  } else {
+    var color = button.css('background-color')
+    $('body').css('background-color', color)
   }
 
   // Inline function to hide spinner
@@ -77,6 +124,9 @@ $('.color').click(function(){
     },
     method: 'POST',
     timeout: 10000,
+    success: function() {
+
+    },
     error: function(response){
 
       // Hide the spinner
@@ -91,11 +141,6 @@ $('.color').click(function(){
   .done(function(response){
     // Check if the device is connected
     if(response.connected == true){
-
-      if(command !== 'play'){
-        var color = button.css('background-color')
-        $('body').css('background-color', color)
-      }
 
       // Save device's current state to Firebase
       firebase.database().ref("devices/"+DEVICE_ID).set(command).then(function(){
