@@ -1,0 +1,20 @@
+[debug] ----------------------------------------------------------------------
+[debug] Command:      /usr/bin/nodejs /usr/local/bin/firebase deploy
+[debug] CLI Version:  3.1.0
+[debug] Platform:     linux
+[debug] Node Version: v4.2.6
+[debug] Time:         Thu Jan 26 2017 09:27:09 GMT+0800 (PHT)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[debug] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/project--2648109471630016846 
+[debug] <<< HTTP RESPONSE 200
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/project--2648109471630016846/tokens 
+[debug] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'project--2648109471630016846'...
+[info] 
+[info] i  deploying database, hosting
+[info] ✔  database: rules ready to deploy.
+[info] i  hosting: preparing . directory for upload...
+[debug] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/project--2648109471630016846/uploads/-KbNNZYO5l-Ow6dE5OwT?fileCount=123&message= 
