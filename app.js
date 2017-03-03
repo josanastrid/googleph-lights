@@ -2,7 +2,7 @@
 var debug = false;
 
 // Constants
-var ACCESS_TOKEN = "1cbecd9ffc3dce4352254089a1ca360f8bf99012"
+var ACCESS_TOKEN = "e5bd0ee55b7593223230ab530f48c79d8a0d8937"
 var DEVICE_ID = "190029001247353236343033"
 
 $(document).ready(function(){
