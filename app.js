@@ -24,21 +24,10 @@ firebase.database().ref().child("devices").child(DEVICE_ID).on('value', function
     var command = snap.val();
 
     // Get the color of the command button
-    if(command == "off") {
-
-    }
-    if(command !== 'play'){
-      var color = $('.' + command).css('background-color')
-      $('body').css('background-color', color)
-    }
-    if(command == "play") {
-      //
-    } else if(command == "off") {
-      $('body').css('background-color', "#222");
-    } else {
-      var color = button.css('background-color')
-      $('body').css('background-color', color)
-    }
+    // if(command !== 'play'){
+    //   var color = $('.' + command).css('background-color')
+    //   $('body').css('background-color', color)
+    // }
 
     // Hide the spinner
     $(".spinner").hide();
@@ -65,7 +54,33 @@ $('.color').click(function(){
     insideSpinner.fadeIn();
   }
 
-  if(command == "play") {
+
+
+  // Inline function to hide spinner
+  function hideSpinner(){
+    // Hide the spinner
+    if(command == "play" || command == "off"){
+      spinner.hide();
+    } else {
+      insideSpinner.hide();
+    }
+  }
+
+  // Build the URL with the DEVICE_ID and the ACCESS_TOKEN
+  var url = "https://api.particle.io/v1/devices/"
+        + DEVICE_ID + "/strip?access_token=" + ACCESS_TOKEN;
+
+  // Change the background color of the body
+  var button = $(this);
+
+
+
+console.log(command);
+  if(command !== 'play'){
+    var color = button.css('background-color')
+    console.log(color);
+    $('body').css('background-color', color)
+  } else {
     var i = 1;  
     interval = setInterval(function() {
       switch(i) {
@@ -91,30 +106,10 @@ $('.color').click(function(){
           clearInterval(interval);
       }
       i++;
-    }, 1000);
-  } else if(command == "off") {
-    $('body').css('background-color', "#222");
-  } else {
-    var color = button.css('background-color')
-    $('body').css('background-color', color)
+    }, 2050);
   }
 
-  // Inline function to hide spinner
-  function hideSpinner(){
-    // Hide the spinner
-    if(command == "play" || command == "off"){
-      spinner.hide();
-    } else {
-      insideSpinner.hide();
-    }
-  }
 
-  // Build the URL with the DEVICE_ID and the ACCESS_TOKEN
-  var url = "https://api.particle.io/v1/devices/"
-        + DEVICE_ID + "/strip?access_token=" + ACCESS_TOKEN;
-
-  // Change the background color of the body
-  var button = $(this)
 
   // Send an AJAX POST request to particle
   $.ajax({
@@ -124,9 +119,6 @@ $('.color').click(function(){
     },
     method: 'POST',
     timeout: 10000,
-    success: function() {
-
-    },
     error: function(response){
 
       // Hide the spinner
